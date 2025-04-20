@@ -1,0 +1,29 @@
+services:
+  auth_service:
+    build: .
+    ports:
+      - "8002:8002"
+    environment:
+      - SECRET_KEY=your-secret-key-here
+      - MONGODB_URL=mongodb://root:password@mongodb:27017
+    depends_on:
+      - mongodb
+    networks:
+      - microservices_net
+
+  mongodb:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: password
+    volumes:
+      - auth_mongodb_data:/data/db
+    networks:
+      - microservices_net
+
+volumes:
+  auth_mongodb_data:
+
+networks:
+  microservices_net:
+    external: true
