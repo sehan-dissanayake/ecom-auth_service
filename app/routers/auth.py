@@ -9,7 +9,7 @@ from app.models.user import User, UserCreate
 router = APIRouter()
 
 # Configuration
-SECRET_KEY = "your-secret-key-keep-it-safe"
+SECRET_KEY = "14825069c25f0aa10c1d59aac7788de1b571f10e0421dc0a3b08cbd632f6b1e0"
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 
